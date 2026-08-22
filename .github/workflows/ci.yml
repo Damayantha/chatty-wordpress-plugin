@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lint:
+    name: PHP lint + WordPress Coding Standards
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ["7.2", "8.3"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer
+
+      - name: PHP syntax check
+        run: |
+          php -l chatty-widget/chatty-widget.php
+          php -l chatty-widget/uninstall.php
+
+      # WPCS only needs to run once (coding-standard checks aren't PHP-version
+      # specific) — skip on the older matrix leg to save CI time.
+      - name: Install PHP_CodeSniffer + WPCS
+        if: matrix.php-version == '8.3'
+        run: |
+          composer require --no-interaction --dev \
+            squizlabs/php_codesniffer \
+            wp-coding-standards/wpcs \
+            dealerdirect/phpcodesniffer-composer-installer
+
+      - name: WordPress Coding Standards
+        if: matrix.php-version == '8.3'
+        run: vendor/bin/phpcs --standard=WordPress-Extra --extensions=php chatty-widget/

@@ -4,7 +4,7 @@ Tags: chatbot, ai, live chat, customer support, chat widget
 Requires at least: 5.8
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,8 @@ This plugin adds the Chatty widget to every page of your WordPress site. Just pa
 * Automatically stays in sync with your bot's configuration in the Chatty dashboard
 * Lightweight — the full chat interface only loads when a visitor opens it
 * Works out of the box with WooCommerce (runs on WordPress, no extra setup needed)
+* Control exactly where the widget shows: all pages, only specific pages/URL patterns, or everywhere except a chosen list
+* Optionally hide the widget for logged-in administrators
 
 = Requirements =
 
@@ -54,7 +56,16 @@ Yes — WooCommerce runs on WordPress, so the widget appears on all your store p
 
 Make sure you clicked "Save Changes" on the settings page, then check your site's front end (not wp-admin) — the launcher button appears in the bottom corner. If you're using a caching plugin, clear its cache after changing settings.
 
+= I only want the widget on certain pages =
+
+Go to Settings → Chatty Widget and set "Display Mode" to "Include Only", then list the page IDs or URL patterns (one comma-separated list, e.g. `12, 45, /about*`) you want it to appear on. Choose "Exclude" to do the opposite — show everywhere except those pages.
+
 == Changelog ==
+
+= 1.1.0 =
+* Add page targeting: show the widget on all pages, only specific pages/URL patterns, or everywhere except a chosen list.
+* Add an option to hide the widget for logged-in administrators.
+* Validate the Bot ID and accent color on save, with a clear admin notice if either is invalid.
 
 = 1.0.0 =
 * Initial release.

@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & publish release zip
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+
+      - name: PHP syntax check
+        run: |
+          php -l chatty-widget/chatty-widget.php
+          php -l chatty-widget/uninstall.php
+
+      # Catches exactly the mistake that shipped a stale build once before on
+      # a sibling repo: a tag pushed without the plugin's own version header
+      # actually being bumped to match. Fails the release outright rather
+      # than silently publishing a zip whose reported version doesn't match
+      # what the tag/URL claims.
+      - name: Verify tag matches plugin version header
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          HEADER_VERSION=$(grep -oP '(?<=Version:\s)[0-9][0-9.]*' chatty-widget/chatty-widget.php | head -1)
+          CONST_VERSION=$(grep -oP "(?<=CHATTY_WIDGET_VERSION', ')[0-9][0-9.]*" chatty-widget/chatty-widget.php)
+          STABLE_TAG=$(grep -oP '(?<=Stable tag:\s)[0-9][0-9.]*' chatty-widget/readme.txt)
+          echo "tag=$TAG_VERSION header=$HEADER_VERSION const=$CONST_VERSION stable_tag=$STABLE_TAG"
+          if [ "$TAG_VERSION" != "$HEADER_VERSION" ] || [ "$TAG_VERSION" != "$CONST_VERSION" ] || [ "$TAG_VERSION" != "$STABLE_TAG" ]; then
+            echo "::error::Tag v$TAG_VERSION doesn't match plugin header ($HEADER_VERSION), CHATTY_WIDGET_VERSION ($CONST_VERSION), or readme.txt Stable tag ($STABLE_TAG). Bump all three before tagging."
+            exit 1
+          fi
+
+      - name: Build plugin zip
+        run: |
+          cd chatty-widget
+          zip -r ../chatty-widget.zip . -x ".*"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: chatty-widget.zip
