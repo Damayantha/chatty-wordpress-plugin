@@ -32,6 +32,11 @@ jobs:
       - name: Install PHP_CodeSniffer + WPCS
         if: matrix.php-version == '8.3'
         run: |
+          composer init --no-interaction --name=personaliai/chatty-widget-ci --stability=stable
+          # Composer 2.2+ blocks third-party plugins by default (a supply-chain-safety
+          # default) — dealerdirect's installer plugin is what auto-registers WPCS as a
+          # phpcs ruleset, so it needs an explicit allow before requiring it.
+          composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
           composer require --no-interaction --dev \
             squizlabs/php_codesniffer \
             wp-coding-standards/wpcs \
