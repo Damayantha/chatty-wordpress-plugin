@@ -326,12 +326,12 @@ class Chatty_Widget_Plugin {
 		// there's no post loop set up for get_the_ID() to read from.
 		if ( 'include' === $settings['display_mode'] ) {
 			$pages = array_map( 'trim', explode( ',', $settings['display_pages'] ) );
-			if ( ! in_array( get_queried_object_id(), $pages, false ) && ! $this->url_matches_patterns( $pages ) ) { // phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict -- $pages are trimmed strings from a textarea; loose comparison intentionally matches "12" against the int get_queried_object_id() returns.
+			if ( ! in_array( get_queried_object_id(), $pages, false ) && ! $this->url_matches_patterns( $pages ) ) { // phpcs:ignore WordPress.PHP.StrictInArray.FoundNonStrictFalse -- $pages are trimmed strings from a textarea; loose comparison intentionally matches "12" against the int get_queried_object_id() returns.
 				return;
 			}
 		} elseif ( 'exclude' === $settings['display_mode'] ) {
 			$pages = array_map( 'trim', explode( ',', $settings['display_pages'] ) );
-			if ( in_array( get_queried_object_id(), $pages, false ) || $this->url_matches_patterns( $pages ) ) { // phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict -- $pages are trimmed strings from a textarea; loose comparison intentionally matches "12" against the int get_queried_object_id() returns.
+			if ( in_array( get_queried_object_id(), $pages, false ) || $this->url_matches_patterns( $pages ) ) { // phpcs:ignore WordPress.PHP.StrictInArray.FoundNonStrictFalse -- $pages are trimmed strings from a textarea; loose comparison intentionally matches "12" against the int get_queried_object_id() returns.
 				return;
 			}
 		}
