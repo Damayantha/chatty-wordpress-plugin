@@ -297,7 +297,7 @@ class Chatty_Widget_Plugin {
 	private function url_matches_patterns( $patterns ) {
 		$host         = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
 		$request_uri  = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-		$current_url  = set_url_scheme( 'http://' . $host . $request_uri );
+		$current_url  = set_url_scheme( '//' . $host . $request_uri );
 		$current_path = $request_uri;
 		foreach ( $patterns as $pattern ) {
 			if ( empty( $pattern ) || is_numeric( $pattern ) ) {

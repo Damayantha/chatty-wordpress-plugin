@@ -11,6 +11,7 @@
  * Text Domain: chatty-widget
  * Requires at least: 5.8
  * Requires PHP: 7.2
+ * Update URI: https://chatty.personaliai.com
  *
  * @package Chatty_Widget
  */
