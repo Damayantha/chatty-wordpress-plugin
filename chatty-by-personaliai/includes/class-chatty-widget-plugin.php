@@ -34,7 +34,7 @@ class Chatty_Widget_Plugin {
 			__( 'Chatty Widget Settings', 'chatty-by-personaliai' ),
 			__( 'Chatty Widget', 'chatty-by-personaliai' ),
 			'manage_options',
-			'chatty-by-personaliai',
+			'chatty-widget',
 			array( $this, 'render_settings_page' )
 		);
 	}
