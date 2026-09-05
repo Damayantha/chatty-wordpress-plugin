@@ -39,9 +39,17 @@ class UrlMatchesPatternsTest extends TestCase {
 
 		Functions\when( 'sanitize_text_field' )->returnArg();
 		Functions\when( 'wp_unslash' )->returnArg();
+		// Real set_url_scheme() replaces a URL's scheme (or, for a
+		// scheme-relative "//host/path" input like url_matches_patterns()
+		// passes, prepends one) based on is_ssl() — never leaves it
+		// scheme-relative. An identity stub here would silently leave the
+		// "//" prefix in place and never actually reproduce that behavior,
+		// so full-URL patterns (which are written with a real "http://"/
+		// "https://" scheme) could never match. Assume non-SSL, matching
+		// this suite not setting $_SERVER['HTTPS'].
 		Functions\when( 'set_url_scheme' )->alias(
 			static function ( $url ) {
-				return $url;
+				return preg_replace( '#^(?:https?:)?//#i', 'http://', $url );
 			}
 		);
 	}
