@@ -34,7 +34,7 @@ styled exactly the way you configured it in the Chatty dashboard.
 
 **From a release zip:**
 
-1. Grab `chatty-widget.zip` from the [latest release](https://github.com/PersonaliAI/chatty-wordpress-plugin/releases/latest)
+1. Grab `chatty-by-personaliai.zip` from the [latest release](https://github.com/PersonaliAI/chatty-wordpress-plugin/releases/latest)
 2. In your WordPress admin: **Plugins → Add New → Upload Plugin**
 3. Choose the zip, click **Install Now**, then **Activate**
 4. Go to **Settings → Chatty Widget** and paste your Bot ID — find it in your [Chatty dashboard](https://chatty.personaliai.com/dashboard) → your bot → **Embed & Integrate**
@@ -86,19 +86,19 @@ The plugin has no build step — it's plain PHP. To work on it against a real Wo
 ```bash
 git clone https://github.com/PersonaliAI/chatty-wordpress-plugin.git
 cd chatty-wordpress-plugin
-ln -s "$(pwd)/chatty-widget" /path/to/wordpress/wp-content/plugins/chatty-widget
+ln -s "$(pwd)/chatty-by-personaliai" /path/to/wordpress/wp-content/plugins/chatty-by-personaliai
 ```
 
-Activate **Chatty AI Chatbot** from the Plugins page and set a Bot ID under
+Activate **Chatty by PersonaliAI** from the Plugins page and set a Bot ID under
 **Settings → Chatty Widget**.
 
 ```
-chatty-widget/
-  chatty-widget.php   Main plugin file — settings page, sanitization, page-targeting
-                       logic, and the enqueue that outputs widget.js with the
-                       configured data-* attributes
-  readme.txt           WordPress.org plugin-directory-format readme
-  uninstall.php        Deletes the plugin's single option on uninstall
+chatty-by-personaliai/
+  chatty-by-personaliai.php   Main plugin file — settings page, sanitization, page-targeting
+                               logic, and the enqueue that outputs widget.js with the
+                               configured data-* attributes
+  readme.txt                  WordPress.org plugin-directory-format readme
+  uninstall.php               Deletes the plugin's single option on uninstall
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for coding standards, the CI setup, and how to run
@@ -120,7 +120,7 @@ on some pages only).
 check the site's front end (not wp-admin) — the launcher appears in a bottom corner. If
 you're running a caching plugin, clear its cache after changing settings.
 
-More in [`chatty-widget/readme.txt`](chatty-widget/readme.txt), which is also what renders on
+More in [`chatty-by-personaliai/readme.txt`](chatty-by-personaliai/readme.txt), which is also what renders on
 the WordPress.org plugin directory page.
 
 ## License

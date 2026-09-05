@@ -24,8 +24,8 @@ jobs:
 
       - name: PHP syntax check
         run: |
-          php -l chatty-widget/chatty-widget.php
-          php -l chatty-widget/uninstall.php
+          php -l chatty-by-personaliai/chatty-by-personaliai.php
+          php -l chatty-by-personaliai/uninstall.php
 
       # WPCS only needs to run once (coding-standard checks aren't PHP-version
       # specific) — skip on the older matrix leg to save CI time.
@@ -35,7 +35,7 @@ jobs:
 
       - name: WordPress Coding Standards
         if: matrix.php-version == '8.3'
-        run: vendor/bin/phpcs --standard=WordPress-Extra --extensions=php chatty-widget/
+        run: vendor/bin/phpcs --standard=WordPress-Extra --extensions=php chatty-by-personaliai/
 
   test:
     name: PHPUnit

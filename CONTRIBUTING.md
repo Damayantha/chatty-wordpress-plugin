@@ -11,10 +11,10 @@ against a real WordPress install:
 ```bash
 git clone https://github.com/PersonaliAI/chatty-wordpress-plugin.git
 cd chatty-wordpress-plugin
-ln -s "$(pwd)/chatty-widget" /path/to/wordpress/wp-content/plugins/chatty-widget
+ln -s "$(pwd)/chatty-by-personaliai" /path/to/wordpress/wp-content/plugins/chatty-by-personaliai
 ```
 
-Then activate **Chatty AI Chatbot** from the WordPress admin's Plugins page
+Then activate **Chatty by PersonaliAI** from the WordPress admin's Plugins page
 and set a Bot ID under **Settings → Chatty Widget**.
 
 Requires PHP 7.2+ and WordPress 5.8+ (matches the plugin header's own
@@ -23,13 +23,13 @@ Requires PHP 7.2+ and WordPress 5.8+ (matches the plugin header's own
 ## Project structure
 
 ```
-chatty-widget/
-  chatty-widget.php   Main plugin file — settings page, sanitization,
-                       page-targeting logic, and the enqueue that outputs
-                       widget.js with the configured data-* attributes
-  readme.txt           WordPress.org plugin-directory-format readme
-                       (changelog, FAQ, description shown on wordpress.org)
-  uninstall.php        Deletes the plugin's single option on uninstall
+chatty-by-personaliai/
+  chatty-by-personaliai.php   Main plugin file — settings page, sanitization,
+                               page-targeting logic, and the enqueue that outputs
+                               widget.js with the configured data-* attributes
+  readme.txt                  WordPress.org plugin-directory-format readme
+                               (changelog, FAQ, description shown on wordpress.org)
+  uninstall.php               Deletes the plugin's single option on uninstall
 ```
 
 Everything lives in one option, `chatty_widget_settings`, read through
@@ -48,7 +48,7 @@ if you want to run it locally first:
 
 ```bash
 composer require --dev squizlabs/php_codesniffer wp-coding-standards/wpcs dealerdirect/phpcodesniffer-composer-installer
-vendor/bin/phpcs --standard=WordPress-Extra chatty-widget/
+vendor/bin/phpcs --standard=WordPress-Extra chatty-by-personaliai/
 ```
 
 ## Pull requests

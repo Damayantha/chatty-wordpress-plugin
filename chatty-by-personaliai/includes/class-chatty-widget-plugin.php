@@ -31,10 +31,10 @@ class Chatty_Widget_Plugin {
 	 */
 	public function add_settings_page() {
 		add_options_page(
-			__( 'Chatty Widget Settings', 'chatty-widget' ),
-			__( 'Chatty Widget', 'chatty-widget' ),
+			__( 'Chatty Widget Settings', 'chatty-by-personaliai' ),
+			__( 'Chatty Widget', 'chatty-by-personaliai' ),
 			'manage_options',
-			'chatty-widget',
+			'chatty-by-personaliai',
 			array( $this, 'render_settings_page' )
 		);
 	}
@@ -46,7 +46,7 @@ class Chatty_Widget_Plugin {
 	 * @return array
 	 */
 	public function add_settings_link( $links ) {
-		$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=chatty-widget' ) ) . '">' . esc_html__( 'Settings', 'chatty-widget' ) . '</a>';
+		$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=chatty-widget' ) ) . '">' . esc_html__( 'Settings', 'chatty-by-personaliai' ) . '</a>';
 		array_unshift( $links, $settings_link );
 		return $links;
 	}
@@ -59,20 +59,20 @@ class Chatty_Widget_Plugin {
 
 		add_settings_section(
 			'chatty_widget_main_section',
-			__( 'Widget Configuration', 'chatty-widget' ),
+			__( 'Widget Configuration', 'chatty-by-personaliai' ),
 			'__return_false',
 			'chatty-widget'
 		);
 
-		add_settings_field( 'bot_id', __( 'Bot ID (required)', 'chatty-widget' ), array( $this, 'field_bot_id' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'color', __( 'Accent Color', 'chatty-widget' ), array( $this, 'field_color' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'position', __( 'Launcher Position', 'chatty-widget' ), array( $this, 'field_position' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'mobile_fullscreen', __( 'Mobile Fullscreen', 'chatty-widget' ), array( $this, 'field_mobile_fullscreen' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'teaser', __( 'Proactive Greeting Bubble', 'chatty-widget' ), array( $this, 'field_teaser' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'sound', __( 'Notification Sound', 'chatty-widget' ), array( $this, 'field_sound' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'display_mode', __( 'Display Mode', 'chatty-widget' ), array( $this, 'field_display_mode' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'display_pages', __( 'Pages to Include/Exclude', 'chatty-widget' ), array( $this, 'field_display_pages' ), 'chatty-widget', 'chatty_widget_main_section' );
-		add_settings_field( 'hide_for_admins', __( 'Hide for Admins', 'chatty-widget' ), array( $this, 'field_hide_for_admins' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'bot_id', __( 'Bot ID (required)', 'chatty-by-personaliai' ), array( $this, 'field_bot_id' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'color', __( 'Accent Color', 'chatty-by-personaliai' ), array( $this, 'field_color' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'position', __( 'Launcher Position', 'chatty-by-personaliai' ), array( $this, 'field_position' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'mobile_fullscreen', __( 'Mobile Fullscreen', 'chatty-by-personaliai' ), array( $this, 'field_mobile_fullscreen' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'teaser', __( 'Proactive Greeting Bubble', 'chatty-by-personaliai' ), array( $this, 'field_teaser' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'sound', __( 'Notification Sound', 'chatty-by-personaliai' ), array( $this, 'field_sound' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'display_mode', __( 'Display Mode', 'chatty-by-personaliai' ), array( $this, 'field_display_mode' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'display_pages', __( 'Pages to Include/Exclude', 'chatty-by-personaliai' ), array( $this, 'field_display_pages' ), 'chatty-widget', 'chatty_widget_main_section' );
+		add_settings_field( 'hide_for_admins', __( 'Hide for Admins', 'chatty-by-personaliai' ), array( $this, 'field_hide_for_admins' ), 'chatty-widget', 'chatty_widget_main_section' );
 	}
 
 	/**
@@ -85,11 +85,11 @@ class Chatty_Widget_Plugin {
 		$output           = array();
 		$output['bot_id'] = isset( $input['bot_id'] ) ? sanitize_text_field( $input['bot_id'] ) : '';
 		if ( empty( $output['bot_id'] ) ) {
-			add_settings_error( 'chatty_widget_settings', 'invalid_bot_id', __( 'Please enter a valid Bot ID.', 'chatty-widget' ), 'error' );
+			add_settings_error( 'chatty_widget_settings', 'invalid_bot_id', __( 'Please enter a valid Bot ID.', 'chatty-by-personaliai' ), 'error' );
 		}
 
 		if ( ! empty( $input['color'] ) && ! preg_match( '/^#[0-9a-fA-F]{6}$/', $input['color'] ) ) {
-			add_settings_error( 'chatty_widget_settings', 'invalid_color', __( 'Please enter a valid hex color (e.g., #FF5733).', 'chatty-widget' ), 'error' );
+			add_settings_error( 'chatty_widget_settings', 'invalid_color', __( 'Please enter a valid hex color (e.g., #FF5733).', 'chatty-by-personaliai' ), 'error' );
 			$output['color'] = '';
 		} else {
 			$output['color'] = isset( $input['color'] ) ? $input['color'] : '';
@@ -135,7 +135,7 @@ class Chatty_Widget_Plugin {
 			esc_attr( CHATTY_WIDGET_OPTION ),
 			esc_attr( $s['bot_id'] )
 		);
-		echo '<p class="description">' . esc_html__( 'Find this in your Chatty dashboard → your bot → Embed & Integrate.', 'chatty-widget' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'Find this in your Chatty dashboard → your bot → Embed & Integrate.', 'chatty-by-personaliai' ) . '</p>';
 	}
 
 	/**
@@ -148,7 +148,7 @@ class Chatty_Widget_Plugin {
 			esc_attr( CHATTY_WIDGET_OPTION ),
 			esc_attr( $s['color'] )
 		);
-		echo '<p class="description">' . esc_html__( 'Optional. Leave blank to use the color already set in your Chatty dashboard.', 'chatty-widget' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'Optional. Leave blank to use the color already set in your Chatty dashboard.', 'chatty-by-personaliai' ) . '</p>';
 	}
 
 	/**
@@ -158,8 +158,8 @@ class Chatty_Widget_Plugin {
 		$s = $this->get_settings();
 		?>
 		<select name="<?php echo esc_attr( CHATTY_WIDGET_OPTION ); ?>[position]">
-			<option value="right" <?php selected( $s['position'], 'right' ); ?>><?php esc_html_e( 'Bottom right', 'chatty-widget' ); ?></option>
-			<option value="left" <?php selected( $s['position'], 'left' ); ?>><?php esc_html_e( 'Bottom left', 'chatty-widget' ); ?></option>
+			<option value="right" <?php selected( $s['position'], 'right' ); ?>><?php esc_html_e( 'Bottom right', 'chatty-by-personaliai' ); ?></option>
+			<option value="left" <?php selected( $s['position'], 'left' ); ?>><?php esc_html_e( 'Bottom left', 'chatty-by-personaliai' ); ?></option>
 		</select>
 		<?php
 	}
@@ -173,7 +173,7 @@ class Chatty_Widget_Plugin {
 			'<label><input type="checkbox" name="%1$s[mobile_fullscreen]" value="1" %2$s /> %3$s</label>',
 			esc_attr( CHATTY_WIDGET_OPTION ),
 			checked( $s['mobile_fullscreen'], '1', false ),
-			esc_html__( 'Open fullscreen on mobile devices', 'chatty-widget' )
+			esc_html__( 'Open fullscreen on mobile devices', 'chatty-by-personaliai' )
 		);
 	}
 
@@ -186,7 +186,7 @@ class Chatty_Widget_Plugin {
 			'<label><input type="checkbox" name="%1$s[teaser]" value="1" %2$s /> %3$s</label>',
 			esc_attr( CHATTY_WIDGET_OPTION ),
 			checked( $s['teaser'], '1', false ),
-			esc_html__( 'Show a proactive greeting bubble after a few seconds', 'chatty-widget' )
+			esc_html__( 'Show a proactive greeting bubble after a few seconds', 'chatty-by-personaliai' )
 		);
 	}
 
@@ -199,7 +199,7 @@ class Chatty_Widget_Plugin {
 			'<label><input type="checkbox" name="%1$s[sound]" value="1" %2$s /> %3$s</label>',
 			esc_attr( CHATTY_WIDGET_OPTION ),
 			checked( $s['sound'], '1', false ),
-			esc_html__( 'Play a chime when a new reply arrives', 'chatty-widget' )
+			esc_html__( 'Play a chime when a new reply arrives', 'chatty-by-personaliai' )
 		);
 	}
 
@@ -210,9 +210,9 @@ class Chatty_Widget_Plugin {
 		$s = $this->get_settings();
 		?>
 		<select name="<?php echo esc_attr( CHATTY_WIDGET_OPTION ); ?>[display_mode]">
-			<option value="all" <?php selected( $s['display_mode'], 'all' ); ?>><?php esc_html_e( 'All Pages', 'chatty-widget' ); ?></option>
-			<option value="include" <?php selected( $s['display_mode'], 'include' ); ?>><?php esc_html_e( 'Include Only', 'chatty-widget' ); ?></option>
-			<option value="exclude" <?php selected( $s['display_mode'], 'exclude' ); ?>><?php esc_html_e( 'Exclude', 'chatty-widget' ); ?></option>
+			<option value="all" <?php selected( $s['display_mode'], 'all' ); ?>><?php esc_html_e( 'All Pages', 'chatty-by-personaliai' ); ?></option>
+			<option value="include" <?php selected( $s['display_mode'], 'include' ); ?>><?php esc_html_e( 'Include Only', 'chatty-by-personaliai' ); ?></option>
+			<option value="exclude" <?php selected( $s['display_mode'], 'exclude' ); ?>><?php esc_html_e( 'Exclude', 'chatty-by-personaliai' ); ?></option>
 		</select>
 		<?php
 	}
@@ -227,7 +227,7 @@ class Chatty_Widget_Plugin {
 			esc_attr( CHATTY_WIDGET_OPTION ),
 			esc_textarea( $s['display_pages'] )
 		);
-		echo '<p class="description">' . esc_html__( 'Comma-separated list of Page IDs or URL patterns. Only applies if mode is Include or Exclude.', 'chatty-widget' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'Comma-separated list of Page IDs or URL patterns. Only applies if mode is Include or Exclude.', 'chatty-by-personaliai' ) . '</p>';
 	}
 
 	/**
@@ -239,7 +239,7 @@ class Chatty_Widget_Plugin {
 			'<label><input type="checkbox" name="%1$s[hide_for_admins]" value="1" %2$s /> %3$s</label>',
 			esc_attr( CHATTY_WIDGET_OPTION ),
 			checked( $s['hide_for_admins'], '1', false ),
-			esc_html__( 'Hide widget when logged in as administrator', 'chatty-widget' )
+			esc_html__( 'Hide widget when logged in as administrator', 'chatty-by-personaliai' )
 		);
 	}
 
@@ -253,15 +253,15 @@ class Chatty_Widget_Plugin {
 		$s = $this->get_settings();
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Chatty Widget Settings', 'chatty-widget' ); ?></h1>
+			<h1><?php esc_html_e( 'Chatty Widget Settings', 'chatty-by-personaliai' ); ?></h1>
 
 			<?php if ( empty( $s['bot_id'] ) ) : ?>
 				<div class="notice notice-warning">
-					<p><?php esc_html_e( 'Enter your Bot ID below to activate the widget on your site.', 'chatty-widget' ); ?></p>
+					<p><?php esc_html_e( 'Enter your Bot ID below to activate the widget on your site.', 'chatty-by-personaliai' ); ?></p>
 				</div>
 			<?php else : ?>
 				<div class="notice notice-success">
-					<p><?php esc_html_e( 'The Chatty widget is active on your site.', 'chatty-widget' ); ?></p>
+					<p><?php esc_html_e( 'The Chatty widget is active on your site.', 'chatty-by-personaliai' ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -278,8 +278,8 @@ class Chatty_Widget_Plugin {
 				<?php
 				printf(
 					/* translators: %s: link to the Chatty dashboard */
-					esc_html__( "Don't have a bot yet? Create one in the %s.", 'chatty-widget' ),
-					'<a href="https://chatty.personaliai.com/dashboard" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Chatty dashboard', 'chatty-widget' ) . '</a>'
+					esc_html__( "Don't have a bot yet? Create one in the %s.", 'chatty-by-personaliai' ),
+					'<a href="https://chatty.personaliai.com/dashboard" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Chatty dashboard', 'chatty-by-personaliai' ) . '</a>'
 				);
 				?>
 			</p>
