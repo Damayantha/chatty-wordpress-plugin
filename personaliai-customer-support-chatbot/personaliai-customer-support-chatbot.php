@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Chatty by PersonaliAI
+ * Plugin Name: PersonaliAI Customer Support Chatbot
  * Plugin URI: https://chatty.personaliai.com
- * Description: Adds the Chatty AI chatbot widget to your WordPress site. No code editing required — just paste your Bot ID.
- * Version: 1.2.0
+ * Description: Adds the PersonaliAI AI customer support chatbot widget (powered by Chatty) to your WordPress site. No code editing required — just paste your Bot ID.
+ * Version: 1.3.0
  * Author: PersonaliAI
  * Author URI: https://personaliai.com
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: chatty-by-personaliai
+ * Text Domain: personaliai-customer-support-chatbot
  * Requires at least: 5.8
  * Requires PHP: 7.2
  *
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'CHATTY_WIDGET_VERSION', '1.2.0' );
+define( 'CHATTY_WIDGET_VERSION', '1.3.0' );
 define( 'CHATTY_WIDGET_OPTION', 'chatty_widget_settings' );
 define( 'CHATTY_WIDGET_SCRIPT_URL', 'https://chatty.personaliai.com/widget.js' );
 define( 'CHATTY_WIDGET_FILE', __FILE__ );

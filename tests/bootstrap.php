@@ -29,11 +29,11 @@ if ( ! defined( 'CHATTY_WIDGET_OPTION' ) ) {
 }
 
 if ( ! defined( 'CHATTY_WIDGET_VERSION' ) ) {
-	define( 'CHATTY_WIDGET_VERSION', '1.2.0' );
+	define( 'CHATTY_WIDGET_VERSION', '1.3.0' );
 }
 
 if ( ! defined( 'CHATTY_WIDGET_SCRIPT_URL' ) ) {
 	define( 'CHATTY_WIDGET_SCRIPT_URL', 'https://chatty.personaliai.com/widget.js' );
 }
 
-require_once __DIR__ . '/../chatty-by-personaliai/includes/class-chatty-widget-plugin.php';
+require_once __DIR__ . '/../personaliai-customer-support-chatbot/includes/class-chatty-widget-plugin.php';

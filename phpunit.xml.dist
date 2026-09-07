@@ -11,7 +11,7 @@
     </testsuites>
     <source>
         <include>
-            <directory suffix=".php">chatty-by-personaliai/includes</directory>
+            <directory suffix=".php">personaliai-customer-support-chatbot/includes</directory>
         </include>
     </source>
 </phpunit>

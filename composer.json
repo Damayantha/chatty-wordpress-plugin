@@ -1,6 +1,6 @@
 {
-    "name": "personaliai/chatty-by-personaliai",
-    "description": "Chatty by PersonaliAI WordPress plugin",
+    "name": "personaliai/personaliai-customer-support-chatbot",
+    "description": "PersonaliAI Customer Support Chatbot WordPress plugin",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "require": {
@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "classmap": [
-            "chatty-by-personaliai/includes/"
+            "personaliai-customer-support-chatbot/includes/"
         ],
         "psr-4": {
             "Chatty_Widget\\Tests\\": "tests/"

@@ -1,14 +1,14 @@
-=== Chatty by PersonaliAI ===
+=== PersonaliAI Customer Support Chatbot ===
 Contributors: tharindudama
 Tags: chatbot, ai chatbot, live chat, customer support, chat widget
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.2
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add the Chatty AI chatbot to your WordPress site in seconds — trained on your website content, zero code required.
+Add the PersonaliAI AI customer support chatbot to your WordPress site in seconds — trained on your website content, zero code required.
 
 == Description ==
 
@@ -43,7 +43,7 @@ This plugin relies on the Chatty AI cloud service to deliver chatbot responses, 
 
 == Installation ==
 
-1. In your WordPress admin, go to **Plugins → Add New** and search for `Chatty by PersonaliAI` (or upload the `chatty-by-personaliai.zip` file).
+1. In your WordPress admin, go to **Plugins → Add New** and search for `PersonaliAI Customer Support Chatbot` (or upload the `personaliai-customer-support-chatbot.zip` file).
 2. Click **Install Now**, then click **Activate**.
 3. Go to **Settings → Chatty Widget** in your WordPress admin menu.
 4. Paste your **Bot ID** (available under the "Embed & Integrate" tab in your [Chatty Dashboard](https://chatty.personaliai.com/dashboard)).
@@ -78,6 +78,9 @@ Yes. You can install this plugin on any number of WordPress sites and link them 
 3. Proactive greeting bubble capturing visitor attention.
 
 == Changelog ==
+
+= 1.3.0 =
+* Renamed the plugin to "PersonaliAI Customer Support Chatbot" (slug: personaliai-customer-support-chatbot) to comply with WordPress.org directory naming and trademark guidelines.
 
 = 1.2.0 =
 * Renamed the plugin to "Chatty by PersonaliAI" (slug: chatty-by-personaliai) for WordPress.org directory approval — distinguishes it from other "Chatty"-named services.

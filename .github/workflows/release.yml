@@ -22,8 +22,8 @@ jobs:
 
       - name: PHP syntax check
         run: |
-          php -l chatty-by-personaliai/chatty-by-personaliai.php
-          php -l chatty-by-personaliai/uninstall.php
+          php -l personaliai-customer-support-chatbot/personaliai-customer-support-chatbot.php
+          php -l personaliai-customer-support-chatbot/uninstall.php
 
       # Catches exactly the mistake that shipped a stale build once before on
       # a sibling repo: a tag pushed without the plugin's own version header
@@ -33,9 +33,9 @@ jobs:
       - name: Verify tag matches plugin version header
         run: |
           TAG_VERSION="${GITHUB_REF_NAME#v}"
-          HEADER_VERSION=$(grep -oP '(?<=Version:\s)[0-9][0-9.]*' chatty-by-personaliai/chatty-by-personaliai.php | head -1)
-          CONST_VERSION=$(grep -oP "(?<=CHATTY_WIDGET_VERSION', ')[0-9][0-9.]*" chatty-by-personaliai/chatty-by-personaliai.php)
-          STABLE_TAG=$(grep -oP '(?<=Stable tag:\s)[0-9][0-9.]*' chatty-by-personaliai/readme.txt)
+          HEADER_VERSION=$(grep -oP '(?<=Version:\s)[0-9][0-9.]*' personaliai-customer-support-chatbot/personaliai-customer-support-chatbot.php | head -1)
+          CONST_VERSION=$(grep -oP "(?<=CHATTY_WIDGET_VERSION', ')[0-9][0-9.]*" personaliai-customer-support-chatbot/personaliai-customer-support-chatbot.php)
+          STABLE_TAG=$(grep -oP '(?<=Stable tag:\s)[0-9][0-9.]*' personaliai-customer-support-chatbot/readme.txt)
           echo "tag=$TAG_VERSION header=$HEADER_VERSION const=$CONST_VERSION stable_tag=$STABLE_TAG"
           if [ "$TAG_VERSION" != "$HEADER_VERSION" ] || [ "$TAG_VERSION" != "$CONST_VERSION" ] || [ "$TAG_VERSION" != "$STABLE_TAG" ]; then
             echo "::error::Tag v$TAG_VERSION doesn't match plugin header ($HEADER_VERSION), CHATTY_WIDGET_VERSION ($CONST_VERSION), or readme.txt Stable tag ($STABLE_TAG). Bump all three before tagging."
@@ -44,11 +44,11 @@ jobs:
 
       - name: Build plugin zip
         run: |
-          cd chatty-by-personaliai
-          zip -r ../chatty-by-personaliai.zip . -x ".*"
+          cd personaliai-customer-support-chatbot
+          zip -r ../personaliai-customer-support-chatbot.zip . -x ".*"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
-          files: chatty-by-personaliai.zip
+          files: personaliai-customer-support-chatbot.zip
