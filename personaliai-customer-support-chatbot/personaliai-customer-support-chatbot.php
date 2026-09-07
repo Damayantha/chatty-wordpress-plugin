@@ -19,11 +19,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'CHATTY_WIDGET_VERSION', '1.3.0' );
-define( 'CHATTY_WIDGET_OPTION', 'chatty_widget_settings' );
-define( 'CHATTY_WIDGET_SCRIPT_URL', 'https://chatty.personaliai.com/widget.js' );
-define( 'CHATTY_WIDGET_FILE', __FILE__ );
+if ( ! defined( 'CHATTY_WIDGET_VERSION' ) ) {
+	define( 'CHATTY_WIDGET_VERSION', '1.3.0' );
+}
+if ( ! defined( 'CHATTY_WIDGET_OPTION' ) ) {
+	define( 'CHATTY_WIDGET_OPTION', 'chatty_widget_settings' );
+}
+if ( ! defined( 'CHATTY_WIDGET_SCRIPT_URL' ) ) {
+	define( 'CHATTY_WIDGET_SCRIPT_URL', 'https://chatty.personaliai.com/widget.js' );
+}
+if ( ! defined( 'CHATTY_WIDGET_FILE' ) ) {
+	define( 'CHATTY_WIDGET_FILE', __FILE__ );
+}
 
 require_once __DIR__ . '/includes/class-chatty-widget-plugin.php';
 
-new Chatty_Widget_Plugin();
+if ( class_exists( 'Chatty_Widget_Plugin' ) ) {
+	new Chatty_Widget_Plugin();
+}

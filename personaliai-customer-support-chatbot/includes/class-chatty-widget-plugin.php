@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Chatty_Widget_Plugin
  */
-class Chatty_Widget_Plugin {
+if ( ! class_exists( 'Chatty_Widget_Plugin' ) ) {
+	class Chatty_Widget_Plugin {
 
 	/**
 	 * Wires up all WordPress hooks.
@@ -389,4 +390,5 @@ class Chatty_Widget_Plugin {
 
 		return str_replace( ' src', $attr_string . ' src', $tag );
 	}
+}
 }

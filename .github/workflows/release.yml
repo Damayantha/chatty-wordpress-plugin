@@ -44,8 +44,7 @@ jobs:
 
       - name: Build plugin zip
         run: |
-          cd personaliai-customer-support-chatbot
-          zip -r ../personaliai-customer-support-chatbot.zip . -x ".*"
+          zip -r personaliai-customer-support-chatbot.zip personaliai-customer-support-chatbot -x ".*"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
