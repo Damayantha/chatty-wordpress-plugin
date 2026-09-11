@@ -8,25 +8,25 @@ Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add the PersonaliAI AI customer support chatbot to your WordPress site in seconds — trained on your website content, zero code required.
+Add the PersonaliAI AI customer support chatbot to your WordPress site in seconds - trained on your website content, zero code required.
 
 == Description ==
 
-Chatty is an AI customer support and lead generation chat widget that answers visitor questions using your own website content, captures qualified leads, and automates support — 24/7 without coding.
+Chatty is an AI customer support and lead generation chat widget that answers visitor questions using your own website content, captures qualified leads, and automates support - 24/7 without coding.
 
 This plugin seamlessly embeds your Chatty AI chatbot onto your WordPress site. Simply paste your Bot ID from your [Chatty dashboard](https://chatty.personaliai.com/dashboard) and save.
 
 = Key Features =
 
-* **Zero Code Required** — Configure everything from Settings → Chatty Widget.
-* **Trained on Your Content** — Answers questions based on your website pages, uploaded docs, and custom knowledge base.
-* **Native Shadow DOM Widget** — Featherweight, non-blocking script with crisp rendering and zero iframe styling conflicts.
-* **Lead Capture & Actions** — Collect visitor names, emails, and phone numbers directly inside the chat.
-* **Works with Any Theme** — 100% compatible with classic themes, full-site editing (FSE) block themes, and page builders like Elementor, Divi, and Beaver Builder.
-* **WooCommerce Ready** — Automatically works on WooCommerce product pages and checkouts to help answer pre-sale questions.
-* **Page-Level Targeting** — Choose to display the chat widget across your whole site, on specific pages/URLs only, or exclude it from certain pages.
-* **Admin Visibility Toggle** — Option to hide the widget for logged-in administrators while working on the site.
-* **Custom Appearance** — Customize accent color, launcher position (bottom-right / bottom-left), mobile fullscreen behavior, proactive greeting bubbles, and chime sounds.
+* **Zero Code Required** - Configure everything from Settings → PersonaliAI Chatbot.
+* **Trained on Your Content** - Answers questions based on your website pages, uploaded docs, and custom knowledge base.
+* **Native Shadow DOM Widget** - Featherweight, non-blocking script with crisp rendering and zero iframe styling conflicts.
+* **Lead Capture & Actions** - Collect visitor names, emails, and phone numbers directly inside the chat.
+* **Works with Any Theme** - 100% compatible with classic themes, full-site editing (FSE) block themes, and page builders like Elementor, Divi, and Beaver Builder.
+* **WooCommerce Ready** - Automatically works on WooCommerce product pages and checkouts to help answer pre-sale questions.
+* **Page-Level Targeting** - Choose to display the chat widget across your whole site, on specific pages/URLs only, or exclude it from certain pages.
+* **Admin Visibility Toggle** - Option to hide the widget for logged-in administrators while working on the site.
+* **Custom Appearance** - Customize accent color, launcher position (bottom-right / bottom-left), mobile fullscreen behavior, proactive greeting bubbles, and chime sounds.
 
 = Requirements & Third-Party Service =
 
@@ -45,9 +45,9 @@ This plugin relies on the Chatty AI cloud service to deliver chatbot responses, 
 
 1. In your WordPress admin, go to **Plugins → Add New** and search for `PersonaliAI Customer Support Chatbot` (or upload the `personaliai-customer-support-chatbot.zip` file).
 2. Click **Install Now**, then click **Activate**.
-3. Go to **Settings → Chatty Widget** in your WordPress admin menu.
+3. Go to **Settings → PersonaliAI Chatbot** in your WordPress admin menu.
 4. Paste your **Bot ID** (available under the "Embed & Integrate" tab in your [Chatty Dashboard](https://chatty.personaliai.com/dashboard)).
-5. Click **Save Changes** — your AI chatbot is now live on your site!
+5. Click **Save Changes** - your AI chatbot is now live on your site!
 
 == Frequently Asked Questions ==
 
@@ -65,7 +65,7 @@ Yes. The widget automatically runs across your store pages and helps answer visi
 
 = Can I hide the widget on specific pages? =
 
-Yes. In **Settings → Chatty Widget**, change the **Display Mode** to **Exclude** and enter the Page IDs or URL patterns (e.g. `15, /checkout/*, /my-account/*`).
+Yes. In **Settings → PersonaliAI Chatbot**, change the **Display Mode** to **Exclude** and enter the Page IDs or URL patterns (e.g. `15, /checkout/*, /my-account/*`).
 
 = Can I use it on multiple WordPress sites? =
 
@@ -83,7 +83,7 @@ Yes. You can install this plugin on any number of WordPress sites and link them 
 * Renamed the plugin to "PersonaliAI Customer Support Chatbot" (slug: personaliai-customer-support-chatbot) to comply with WordPress.org directory naming and trademark guidelines.
 
 = 1.2.0 =
-* Renamed the plugin to "Chatty by PersonaliAI" (slug: chatty-by-personaliai) for WordPress.org directory approval — distinguishes it from other "Chatty"-named services.
+* Renamed the plugin to "Chatty by PersonaliAI" (slug: chatty-by-personaliai) for WordPress.org directory approval - distinguishes it from other "Chatty"-named services.
 
 = 1.1.0 =
 * Added page targeting: include or exclude specific pages and URL patterns.

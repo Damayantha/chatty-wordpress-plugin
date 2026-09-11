@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PersonaliAI Customer Support Chatbot
  * Plugin URI: https://chatty.personaliai.com
- * Description: Adds the PersonaliAI AI customer support chatbot widget (powered by Chatty) to your WordPress site. No code editing required — just paste your Bot ID.
+ * Description: Adds the PersonaliAI AI customer support chatbot widget (powered by Chatty) to your WordPress site. No code editing required - just paste your Bot ID.
  * Version: 1.3.0
  * Author: PersonaliAI
  * Author URI: https://personaliai.com
